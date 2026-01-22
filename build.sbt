@@ -15,14 +15,14 @@ ThisBuild / githubWorkflowEnv += ("SBT_OPTS" -> "-Xms4G -Xmx8G -XX:+UseG1GC -Xss
 
 ThisBuild / resolvers += Resolver.sonatypeCentralSnapshots
 
-ThisBuild / githubWorkflowJavaVersions := Seq(
+ThisBuild / githubWorkflowJavaVersions   := Seq(
   JavaSpec.graalvm(Graalvm.Distribution("graalvm"), "17"),
   JavaSpec.graalvm(Graalvm.Distribution("graalvm"), "21"),
   JavaSpec.temurin("17"),
   JavaSpec.temurin("21"),
 )
 ThisBuild / githubWorkflowTargetBranches := Seq("main")
-ThisBuild / githubWorkflowPREventTypes := Seq(
+ThisBuild / githubWorkflowPREventTypes   := Seq(
   PREventType.Opened,
   PREventType.Synchronize,
   PREventType.Reopened,
@@ -362,8 +362,8 @@ lazy val zioHttpExample = (project in file("zio-http-example"))
       `zio-config`,
       `zio-config-magnolia`,
       `zio-config-typesafe`,
-      "dev.zio" %% "zio-metrics-connectors"            % "2.5.0",
-      "dev.zio" %% "zio-metrics-connectors-prometheus" % "2.5.0",
+      "dev.zio" %% "zio-metrics-connectors"            % "2.5.5",
+      "dev.zio" %% "zio-metrics-connectors-prometheus" % "2.5.5",
     ),
   )
   .dependsOn(zioHttpJVM, zioHttpCli, zioHttpGen, zioHttpDatastarSdk)
