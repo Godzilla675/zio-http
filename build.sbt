@@ -15,14 +15,14 @@ ThisBuild / githubWorkflowEnv += ("SBT_OPTS" -> "-Xms4G -Xmx8G -XX:+UseG1GC -Xss
 
 ThisBuild / resolvers += Resolver.sonatypeCentralSnapshots
 
-ThisBuild / githubWorkflowJavaVersions   := Seq(
+ThisBuild / githubWorkflowJavaVersions := Seq(
   JavaSpec.graalvm(Graalvm.Distribution("graalvm"), "17"),
   JavaSpec.graalvm(Graalvm.Distribution("graalvm"), "21"),
   JavaSpec.temurin("17"),
   JavaSpec.temurin("21"),
 )
 ThisBuild / githubWorkflowTargetBranches := Seq("main")
-ThisBuild / githubWorkflowPREventTypes   := Seq(
+ThisBuild / githubWorkflowPREventTypes := Seq(
   PREventType.Opened,
   PREventType.Synchronize,
   PREventType.Reopened,
